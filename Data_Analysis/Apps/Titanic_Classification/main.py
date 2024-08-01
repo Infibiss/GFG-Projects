@@ -41,7 +41,8 @@ def preprocess_input(data):
 def predict(user_input):
     user_input = preprocess_input(user_input)
 
-    model = joblib.load('model.joblib')
+    path = os.path.dirname(__file__).replace('\\', '/') + '/model.joblib'
+    model = joblib.load(path)
     prediction = model.predict(user_input)
 
     st.write('### Prediction:')
