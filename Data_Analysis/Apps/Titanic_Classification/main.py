@@ -5,10 +5,6 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 
 
-# Load the pre-trained model
-model = joblib.load('model.joblib')
-
-
 # Function to get user input
 def get_user_input():
     st.sidebar.header('User Input Features')
@@ -45,6 +41,7 @@ def preprocess_input(data):
 def predict(user_input):
     user_input = preprocess_input(user_input)
 
+    model = joblib.load('model.joblib')
     prediction = model.predict(user_input)
 
     st.write('### Prediction:')
